@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Third apps
     'debug_toolbar',
+    # "django_bootstrap5",
     # local apps
+    'accounts',
 
 ]
 
@@ -89,6 +91,8 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+AUTH_USER_MODEL = "accounts.User"
 
 
 # Password validation
@@ -142,3 +146,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+
+# bootstrap
+# BOOTSTRAP5 = {
+#     "required_css_class" : "fw-bold",
+#     "set_placeholder" : False,
+# }
