@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Third apps
+    "django_bootstrap5",
     'debug_toolbar',
-    # "django_bootstrap5",
     # local apps
     'accounts',
 
@@ -129,7 +129,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, 'LangMaster','static'),    
 ]
@@ -146,10 +146,3 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
-
-
-# bootstrap
-# BOOTSTRAP5 = {
-#     "required_css_class" : "fw-bold",
-#     "set_placeholder" : False,
-# }
