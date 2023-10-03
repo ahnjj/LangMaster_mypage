@@ -16,3 +16,6 @@ class SignupForm(BaseUserCreationForm):
     class Meta(BaseUserCreationForm.Meta):
         model = User # 우리 앱에 있는 user모델로 변경해주어야함
         fields = ['username', 'email', 'first_name', 'last_name']
+
+    def clean_email(self):
+        pass
