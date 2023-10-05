@@ -19,8 +19,8 @@ class Vocab(models.Model):
         GERMAN = "de-DE", "German"
         RUSSIAN = "ru-RU", "Russian"
 
-
-    word_ko = models.CharField(max_length=100, verbose_name = "Meaning")  # 한국어 단어
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True, default=None) # 작성자
+    word_ko = models.CharField(primary_key=True, max_length=100, verbose_name = "Meaning")  # 한국어 단어
     word_fo = models.CharField(max_length=100, blank=True, verbose_name="Vocab")  # 외국어 단어(번역한것)
     language = models.CharField(max_length=10, choices=Language.choices, default=Language.ENGLISH, verbose_name="Language")
     sentence = models.TextField(blank=True, verbose_name="Sentence") # 예문

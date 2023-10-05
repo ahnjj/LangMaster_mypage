@@ -9,7 +9,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    # path('langapp/',include('langapp.urls')),
+    path('langapp/',include('langapp.urls')),
     path('', login_required(TemplateView.as_view(template_name='index.html')), name='index'),  # login 해야지만 접속 가능하도록
 ]
 
