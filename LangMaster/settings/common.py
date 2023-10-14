@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 from os.path import abspath, dirname
+import db_settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -22,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-3faof68bj__27$1er)_z4f%dgd%mg3*d3=jcv*2f714ook67u&"
+# SECRET_KEY = "django-insecure-3faof68bj__27$1er)_z4f%dgd%mg3*d3=jcv*2f714ook67u&"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -86,12 +87,14 @@ WSGI_APPLICATION = "LangMaster.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+DATABASES = db_settings.DATABASES
+SECRET_KEY = db_settings.SECRET_KEY
 
 AUTH_USER_MODEL = "accounts.User"
 

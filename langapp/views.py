@@ -14,7 +14,7 @@ def vocab_list(request):
 # 각 단어 상세 조회 뷰
 @login_required
 def vocab_detail(request, pk):
-    vocab = Vocab.objects.get(id=pk)
+    vocab = Vocab.objects.get(word_no=pk)
     return render(request, 'langapp/vocab_detail.html', {'vocab':vocab})
 
 
@@ -37,7 +37,7 @@ def vocab_post(request):
 # 수정 뷰
 @login_required
 def vocab_edit(request, pk):
-    vocab = Vocab.objects.get(id=pk)
+    vocab = Vocab.objects.get(word_no=pk)
     if request.method == "POST":
         form = VocabForm(request.POST, instance=vocab)
         if form.is_valid():
@@ -55,7 +55,6 @@ def vocab_edit(request, pk):
 @login_required
 def complete_list(request):
     completes = Vocab.objects.filter(complete=True)
-    # permission_classes = [CustomReadOnly]     # 권한 추가 부분
     return render(request, 'langapp/complete_list.html', {'completes':completes})
 
 
@@ -63,7 +62,7 @@ def complete_list(request):
 # 암기 
 @login_required
 def completed(request, pk):
-    vocab = Vocab.objects.get(id=pk)
+    vocab = Vocab.objects.get(word_no=pk)
     vocab.complete = True
     vocab.author = request.user  # 추가
     vocab.save()
@@ -73,7 +72,7 @@ def completed(request, pk):
 # 미암기
 @login_required
 def uncompleted(request, pk):
-    vocab = Vocab.objects.get(id=pk)
+    vocab = Vocab.objects.get(word_no=pk)
     vocab.complete = False
     vocab.author = request.user  # 추가
     vocab.save()

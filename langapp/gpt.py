@@ -11,11 +11,9 @@ import pygame
 from dotenv import load_dotenv
 from langapp.models import GptMessage
 
-
 load_dotenv()  # 상위경로 경우 "..env"..?
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
-
 
 
 def gpt_query(vocab, language, skip_save: bool = False) -> str:
